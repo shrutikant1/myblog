@@ -4,10 +4,20 @@
     <article class="post">
         <aside class="actions">
             {% if user.is_authenticated %}
+            <p>inside if_begin</p>
             <a class="btn btn-secondary" href="{% url 'post_edit' pk=post.pk %}">
                 {% include './icons/pencil-fill.svg' %}
+
             </a>
+            {% else %}
+            <p>inside else_begin</p>
+            <!-- <p>user is NOT authenticated</p> -->
+            <a class="btn btn-secondary" href="{% url 'login' %}" class="top-menu"><span>
+            {% include './icons/pencil-fill.svg' %}
+            
+            </span></a>
             {% endif %}
+            
         </aside>
 
         {% if post.published_date %}
